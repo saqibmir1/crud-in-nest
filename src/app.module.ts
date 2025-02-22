@@ -19,6 +19,3 @@ import { DatabaseModule } from './core/database/database.module';
   providers: [AppService],
 })
 export class AppModule {}
-
-
-

@@ -1,3 +1,3 @@
 export class MessageDto {
-    message: string;
-  }
+  message: string;
+}

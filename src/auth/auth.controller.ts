@@ -1,8 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-} from '@nestjs/common';
+import { Controller, Post, Body } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { CreateAuthDto } from './dto/create-auth.dto';
 import { ApiOperation, ApiProperty, ApiResponse } from '@nestjs/swagger';
@@ -16,10 +12,14 @@ export class AuthController {
   @Post('register')
   @ApiProperty({ type: CreateAuthDto })
   @ApiOperation({ summary: 'Register a user' })
-  @ApiResponse({status: 201, type: MessageDto, description: "User created successfully"})
-  async create(@Body() createAuthDto: CreateAuthDto):Promise<MessageDto> {
+  @ApiResponse({
+    status: 201,
+    type: MessageDto,
+    description: 'User created successfully',
+  })
+  async create(@Body() createAuthDto: CreateAuthDto): Promise<MessageDto> {
     const message = await this.authService.create(createAuthDto);
-    return {message};
+    return { message };
   }
 
   @Post('login')
